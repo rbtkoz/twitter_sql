@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="page-header">
-    <h1>Welcome to Twitter.js, Nimit!</h1>
+    <h1>A Tweee</h1>
 </div>
 <div class="row">
     <div class="col-md-3">
@@ -11,14 +11,26 @@
         <b>Your Name</b><br>
         100 followers
     </div>
-    <div class="col-md-9">
+    <class="col-md-9"></div>
 
-        <!-- display tweets here -->
+
+            <!-- display tweets here -->
+            {% for tweet in tweets %}
+    <div class="row">
+
         {% for tweet in tweets %}
-        <li>{{tweet.text}}</li>
-        {% endfor %}
 
+        {% endfor %}
+            <div class ="col-md-4">
+                <h1><a href="/users/{{tweet.name}}">{{tweet.name}}</a></h1>
+            </div>
+            <div class = "col-md-8">
+                <li><a href="/users/{{tweet.name}}/tweets/{{tweet.id}}">{{tweet.tweet}}</a></li>
+            </div>
     </div>
+            {% endfor %}
+
+
 </div>
 
 {% endblock %}

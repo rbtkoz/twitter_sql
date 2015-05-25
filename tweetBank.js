@@ -1,21 +1,22 @@
 var _ = require('underscore');
 
-var data = [{name: "Alex",text:"is great"}];
-
-
-var add = function (name, text) {
-    data.push({ name: name, text: text });
-};
-
-var list = function () {
-    return _.clone(data);
-};
-
-var find = function (properties) {
-    return _.where(data, properties);
-};
-
-module.exports = { add: add, list: list, find: find };
+var data = [];
+var largestId = 0;
+module.exports = {
+    list: function() {
+        return _.clone(data)
+    },
+    find: function(query) {
+        return _.where(data, query)
+    },
+    add: function(name, tweet) {
+        largestId = data.push({
+            name: name,
+            tweet: tweet,
+            id: largestId
+        })
+    }
+}
 
 var randArrayEl = function(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
@@ -38,4 +39,4 @@ for(var i=0; i<10; i++) {
 }
 
 
-console.log(module.exports.find({name:"Sophia Hazelnut"}))
+console.log(module.exports.list())

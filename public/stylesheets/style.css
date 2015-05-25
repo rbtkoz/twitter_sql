@@ -57,3 +57,9 @@ code {
 .content .by {
     font-weight: bold;
 }
+
+/*added custom*/
+
+li{
+    padding-top:40px;
+}
